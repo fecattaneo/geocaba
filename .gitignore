@@ -47,3 +47,8 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Raw, out and dta folders 
+out/
+dta/
+raw/
