@@ -5,12 +5,17 @@
 # Clear all objects
 rm(list = ls())
 
-# Get working directory for the repository
-wd <- getwd() 
+# Get current working directory
+wd <- getwd()
+
+# Traverse upward to find the root Git directory
+while(!file.exists(file.path(wd, ".git"))) {
+  wd <- dirname(wd)
+}
 
 # Data load and analysis
-data <- paste0(wd, "/00. Data load")
-analysis <- paste0(wd, "/01. Analysis")
+data <- paste0(wd, "/01. Data load")
+analysis <- paste0(wd, "/02. Analysis")
 
 # Sub-directories
 for (folder in c(data, analysis)) {
@@ -40,3 +45,5 @@ install_and_load_libraries <- function(libs) {
     cat("Library", lib, "loaded.\n")
   }
 }
+
+install_and_load_libraries(libraries)

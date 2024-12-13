@@ -48,7 +48,7 @@ st_write(barrios, geojson_file)
 url <- "https://data.buenosaires.gob.ar/dataset/barrios-populares/resource/3d0f5f8d-6fb2-42f1-91d4-85b347c05e76/download"
 
 # Download the shapefile (compressed as a .zip file)
-zip <- paste0(data, "/raw/", "barrios_populares.zip")
+zip <- paste0(data, "/raw", "/barrios_populares.zip")
 download.file(url, destfile = zip, mode = "wb")
 
 # Extract the zip file
