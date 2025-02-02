@@ -10,7 +10,7 @@ while(!file.exists(file.path(current_dir, ".git"))) {
   current_dir <- dirname(current_dir)
 }
 
-source('H:/GitHub/geocaba/_setup.R')
+source(paste0(current_dir, '/00. Resources', '/_setup.R' ))
 
 #···············································································
 # 2) Barrios
@@ -45,7 +45,7 @@ st_write(barrios, geojson_file)
 #···············································································
 
 # URL
-url <- "https://data.buenosaires.gob.ar/dataset/barrios-populares/resource/3d0f5f8d-6fb2-42f1-91d4-85b347c05e76/download"
+url <- "https://cdn.buenosaires.gob.ar/datosabiertos/datasets/ministerio-de-desarrollo-humano-y-habitat/barrios-populares/barrios-populares-badata.zip"
 
 # Download the shapefile (compressed as a .zip file)
 zip <- paste0(data, "/raw", "/barrios_populares.zip")
@@ -66,4 +66,4 @@ names(barrios_populares) <- tolower(names(barrios_populares))
 # Save data 
 geojson_file <- paste0(data, "/dta", "/barrios_populares.geojson")
 if (file.exists(geojson_file)) file.remove(geojson_file)  # Delete the existing file
-st_write(barrios, geojson_file)
+st_write(barrios_populares, geojson_file)
